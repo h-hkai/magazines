@@ -14,16 +14,12 @@ class ItCoursesController extends Controller
     public function index(): View
     {
       $query = DB::table('persistence')->where('id', 1)->first();
-      $study_code = null;
-      $passwd = $query->study_code;
       $count = $query->access_counts;
 
       $courses = DB::table('itcourses')->orderBy('update_time', 'desc')->paginate(15);
 
       return view('itcourses', [
         'courses' => $courses, 
-        'study_code' => $study_code, 
-        'count' => $count, 
-        'passwd' => $passwd]);
+        'count' => $count]);
     }
 }

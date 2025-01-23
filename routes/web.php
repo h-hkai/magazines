@@ -11,11 +11,7 @@ use App\Http\Controllers\ItCoursesController;
 
 Route::get('/', [MagazinesController::class, 'index']);
 
-Route::get('/', [MagazinesController::class, 'get'])->name('magazines.get');
-
 Route::get('/itcourses', [ItCoursesController::class, 'index']);
-
-Route::get('/itcourses', [ItCoursesController::class, 'get'])->name('itcourses.get');
 
 Route::get('/voices', [VoicesController::class, 'index']);
 
