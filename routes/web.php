@@ -10,6 +10,7 @@ use App\Http\Controllers\ItCoursesController;
 // });
 
 Route::get('/', [MagazinesController::class, 'index']);
+Route::get('/count', [MagazinesController::class, 'count'])->name('magazines.count');
 
 Route::get('/itcourses', [ItCoursesController::class, 'index']);
 
