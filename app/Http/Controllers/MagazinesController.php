@@ -16,7 +16,7 @@ class MagazinesController extends Controller
       $query = DB::table('persistence')->where('id', 1)->first();
       $count = $query->access_counts;
 
-      $magazines = DB::table('magazines')->whereNotNull('pure_download_links')->orderBy('update_time', 'desc')->paginate(15);
+      $magazines = DB::table('magazines')->whereNotNull('pure_download_links')->orderBy('update_time', 'desc')->paginate(16);
 
       return view('magazines', [
         'magazines' => $magazines, 
@@ -34,5 +34,11 @@ class MagazinesController extends Controller
       $count = $query->access_counts;     
 
       DB::table('persistence')->where('id', 1)->update(['access_counts' => $count+1]);
+    }
+
+    public function show($id): View
+    {
+      $magazine = DB::table('magazines')->where('id', $id)->first();
+      return view('show', ['magazine' => $magazine]);
     }
 }
