@@ -17,18 +17,24 @@
     <b>标签：</b>
     <p>{{$magazine->tags}}</p>
     @if(Auth::check())
-      <b>下载链接：</b>
+    <b>下载链接：</b>
+      @if(!empty($magazine->pure_download_links))
       <br>
       <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->pure_download_links, 2, -2)}}">百度网盘</button>
       <br>
+      @endif
+      @if(!empty($magazine->lanzoup_download_links))
       <br>
       <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->lanzoup_download_links, 2, -2)}}">蓝奏云</button>
       <br>
+      @endif
+      @if(!empty($magazine->kdocs_download_links))
       <br>
       <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->kdocs_download_links, 2, -2)}}">在线阅读</button>
+      @endif
 
     @else
-      <p><font color="red">登陆后获取下载链接！</font></p>
+    <p><font color="red">登陆后获取下载链接！</font></p>
     @endif
 
   </div>

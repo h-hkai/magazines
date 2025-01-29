@@ -8,7 +8,9 @@
     <a href="{{route('magazines.show', ['id' => $magazine->id])}}">
       <img src={{$magazine->img}} width=60%>
     </a>
-    <p>{{$magazine->title_zh}}</p> 
+    <a href="{{route('magazines.show', ['id' => $magazine->id])}}">
+      <p>{{$magazine->title_zh}}</p> 
+    </a>
   </div>
   @endforeach
 </div>
