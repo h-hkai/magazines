@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo asset('css/app.css')?>" type="text/css"> 
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
@@ -26,8 +27,9 @@
 
                 <div class="navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                    <ul class="navbar-nav me-auto" id="nav">
+                      <!-- data come from AppServiceProvider -->
+                      {!!$headerMenu!!}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -36,13 +38,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('登录') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('注册') }}</a>
                                 </li>
                             @endif
                         @else
@@ -55,7 +57,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('退出') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -77,3 +79,13 @@
     </div>
 </body>
 </html>
+
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+  $('#clickable-div').mouseover( function() {
+    $('#nav-menu').slideDown();
+  });
+  $('#wrap').mouseleave( function() {
+    $('#nav-menu').slideUp();
+  });
+</script>

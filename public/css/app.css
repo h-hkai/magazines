@@ -1,0 +1,14 @@
+#nav {
+  text-align: center;
+}
+
+#nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#nav li {
+  padding: 2px 5px;
+  margin-left: 20px;
+  display: inline-block;
+}

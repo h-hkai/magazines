@@ -5,9 +5,9 @@ use App\Http\Controllers\MagazinesController;
 use App\Http\Controllers\VoicesController;
 use App\Http\Controllers\ItCoursesController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/', [MagazinesController::class, 'index']);
 Route::get('/count', [MagazinesController::class, 'count'])->name('magazines.count');
