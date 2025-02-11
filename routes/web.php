@@ -13,8 +13,6 @@ Route::get('/', [MagazinesController::class, 'index']);
 Route::get('/count', [MagazinesController::class, 'count'])->name('magazines.count');
 Route::get('/show/{id}', [MagazinesController::class, 'show'])->name('magazines.show');
 
-Route::get('/itcourses', [ItCoursesController::class, 'index']);
-
 Route::get('/voices', [VoicesController::class, 'index']);
 
 Route::get('/history', [MagazinesController::class, 'history']);

@@ -16,6 +16,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js']) 
+
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo asset('favicon.ico')?>">
 </head>
 <body>
     <div id="app">
@@ -79,13 +81,3 @@
     </div>
 </body>
 </html>
-
-<script src="../js/jquery-3.7.1.min.js"></script>
-<script>
-  $('#clickable-div').mouseover( function() {
-    $('#nav-menu').slideDown();
-  });
-  $('#wrap').mouseleave( function() {
-    $('#nav-menu').slideUp();
-  });
-</script>
