@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Magazines extends Model
+class Magazine extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -16,6 +16,7 @@ class Magazines extends Model
       'img',
       'description',
       'tags',
+      'count',
       'update_time'
     ];
 }

@@ -10,7 +10,7 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', [MagazinesController::class, 'index']);
-Route::get('/count', [MagazinesController::class, 'count'])->name('magazines.count');
+Route::get('/count/{id}', [MagazinesController::class, 'count'])->name('magazines.count');
 Route::get('/show/{id}', [MagazinesController::class, 'show'])->name('magazines.show');
 
 Route::get('/voices', [VoicesController::class, 'index']);

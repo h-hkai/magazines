@@ -16,6 +16,8 @@
     <p>{{$magazine->update_time}}</p>
     <b>标签：</b>
     <p>{{$magazine->tags}}</p>
+    <b>下载次数：</b>
+    <p>{{$magazine->count}}</p>
     @if(Auth::check())
     <b>下载链接：</b>
       @if(!empty($magazine->pure_download_links))
@@ -43,7 +45,7 @@
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script>
   $(document).on('click', '.redirectToUrl', function() {
-    $.get("{{route('magazines.count')}}");
+    $.get("{{route('magazines.count', ['id' => $magazine->id])}}");
     let getRedirectUrl = $(this).attr('data-redirect-url');
     console.log("Multiple", "arguments", "here");
     window.open(getRedirectUrl, "_blank");
