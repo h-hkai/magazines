@@ -21,13 +21,4 @@
   {{$magazines->appends(request()->query())->links()}}
 </div>
 
-<script src="js/jquery-3.7.1.min.js"></script>
-<script>
-  $(document).on('click', '.redirectToUrl', function() {
-    $.get("{{route('magazines.count')}}");
-    let getRedirectUrl = $(this).attr('data-redirect-url');
-    console.log("Multiple", "arguments", "here");
-    window.location.href= getRedirectUrl;
-  });
-</script>
 @endsection

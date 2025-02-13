@@ -20,19 +20,23 @@
     <p>{{$magazine->count}}</p>
     @if(Auth::check())
     <b>下载链接：</b>
-      @if(!empty($magazine->pure_download_links))
-      <br>
-      <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->pure_download_links, 2, -2)}}">百度网盘</button>
-      <br>
-      @endif
-      @if(!empty($magazine->lanzoup_download_links))
-      <br>
-      <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->lanzoup_download_links, 2, -2)}}">蓝奏云</button>
-      <br>
-      @endif
-      @if(!empty($magazine->kdocs_download_links))
-      <br>
-      <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->kdocs_download_links, 2, -2)}}">在线阅读</button>
+      @if(Auth::user()->daily_count < 3 || Auth::user()->level > 0)
+        @if(!empty($magazine->pure_download_links))
+        <br>
+        <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->pure_download_links, 2, -2)}}">百度网盘</button>
+        <br>
+        @endif
+        @if(!empty($magazine->lanzoup_download_links))
+        <br>
+        <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->lanzoup_download_links, 2, -2)}}">蓝奏云</button>
+        <br>
+        @endif
+        @if(!empty($magazine->kdocs_download_links))
+        <br>
+        <button type="button" class="redirectToUrl" data-redirect-url="{{substr($magazine->kdocs_download_links, 2, -2)}}">在线阅读</button>
+        @endif
+      @else
+      <p><font color="red">今日下载次数已用完，请明天再来！</font></p>
       @endif
 
     @else
